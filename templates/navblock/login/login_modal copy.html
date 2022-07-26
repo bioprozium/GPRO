@@ -1,0 +1,94 @@
+<div id="loginbox" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginLabel">Log In</h5>
+        <a href="" data-bs-target="#forgot" data-bs-toggle="modal">Forgot password?</a>
+      </div>
+      <div class="modal-body">
+        <form id="login_form">
+          <div id="loginalert" style="display:none" class="alert alert-danger">
+            <p>Error:</p>
+            <span></span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-at" style="font-size: 1rem; color: #198754"></i></span>
+            <input type="text" id="login-mail" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2"><i class="bi bi-lock-fill" style="font-size: 1rem; color: #198754"></i></span>
+            <input type="password" id="login-password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" id="login-remember" class="form-check-input" id="checkUser">
+            <label class="form-check-label" for="checkUser">Check me out</label>
+          </div>
+          <a href="#" onclick="login()" class="btn btn-outline-success">Log In</a>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p>I am not registered!</p>
+        <button class="btn btn-success" data-bs-target="#signup" data-bs-toggle="modal">Sign Up</button>
+      </div>
+    </div>
+</div>
+<div id="signupbox" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="signup_form">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+            <label for="floatingEmail">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingName" placeholder="Name">
+            <label for="floatingName">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingSurname" placeholder="Surname">
+            <label for="floatingSurname">Surname</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingRPassword" placeholder="RepeatPassword">
+            <label for="floatingRPassword">Repeat Password</label>
+          </div>
+          <button type="submit" onclick="register()" class="btn btn-outline-success">Register</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-target="#login" data-bs-toggle="modal">Log In</button>
+      </div>
+    </div>
+</div>
+<div id="forgotpassbox" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="forgotLabel">Forgot Password?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <b>Password Recovery</b>
+        <br>
+        <p>Please provide the email address that you used when you signed up for your account. We will send you an email that will allow you to reset your password.
+        </p>
+        <form id="forgot_form">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="email" placeholder="Email" id="forgotemail">
+          </div>
+          <div class="input-group mb-3">
+            <button id="btn-reset" type="button" class="btn btn-outline-success" onclick="send_mail()"><i class="icon-hand-right"></i> &nbsp; Send email</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-target="#login" data-bs-toggle="modal">Log In</button>
+      </div>
+    </div>
+  </div>

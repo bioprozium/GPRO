@@ -1,0 +1,18 @@
+<div class="container border rounded" style="padding: 30px; margin-top: 10px;">
+    <form action="{|HTTP_URL|}" method="post" enctype="multipart/form-data" onsubmit="check()">
+        <div class="row">
+            <div class="col col-4">
+                <div class="fileUploader">
+                    <h3>Upload Your Files</h3>
+                    <input class="form-control" type="file" name="fileToUpload[]" id="gFile" multiple onchange="uploadInfo()">
+                    <br>
+                    <button class="btn btn-outline-success" type="submit" id="uploadButton"">Upload</button>
+                </div>
+            </div>
+            <div class="col col-8">
+                <div id="selectedFiles"></div>
+            </div>
+        </div>       
+    </form>
+    <script src="script/js/uploader.js"></script>
+</div>

@@ -1,0 +1,18 @@
+GENERAL
+1.  Length
+2.  CpG-Island
+3.  Nucleotide by Position
+4.  Adenine
+5.  Cytosine
+6.  Guanine
+7.  Thymine
+8.  Gene Names
+9.  Transcript names
+10. Chromosome
+11. Strand
+12. Motifs
+
+SPECIAL
+1.  Codon Usage
+2.  AminoAcid Position
+3.  Codon Position

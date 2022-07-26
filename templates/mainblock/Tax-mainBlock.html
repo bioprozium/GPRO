@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row" style="margin: 5px 15px 15px 0px;">
+        <{LINEAGE}>
+    </div>
+    <div class="row gx-5">
+        <div class="vstack gap-3 col-3">
+            <div>
+                <{GROUPS}>
+            </div>
+            <{SELECTED_FILES_LIST}>
+        </div>
+        <div class="col-9">
+            <{DATA}>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready( function () {
+        $('#taxtable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{|HTTP_URL|}&ajax=true",
+        });
+});
+</script>
