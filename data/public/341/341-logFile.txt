@@ -1,1 +1,0 @@
-cds:1;cdna:1;genomic:1;genomicc:1;cdsu:1;cdnau:1;genomicu:1;genomiccu:1;

@@ -22,18 +22,22 @@ class analyzer
     public $filter = "";
     //result
     public $graphTable;
+    //Project tools
+    public $projCTRL;
     function __construct()
     {
         $this->page = tools::parse_by_constants(file_get_contents(MAINBLOCK.'Anl-mainBlock.html'));
         gpro::$HTML["BODY_SCRIPT_BLOCK"]="<script src='script/js/anl.js'></script>";
         $this->gets = $_GET;
         $this->posts = $_POST;
+        //$this->projCTRL = "";
         $this->userType = $this->checkUserExists();
         //Get Files
         if($this->userType==true)
         {
             //usersite code...
             $this->getUserFiles(true);
+            $this->projCTRL = $this->setProjCTRLdata();
         }
         else if($this->userType==false)
         {
@@ -114,7 +118,10 @@ class analyzer
         $this->page = tools::parse_by_blocks("OBJECTS",$this->page,$this->setList());
         $this->page = tools::parse_by_blocks("OBJECTS_N_SEQ_PROP",$this->page,$this->seqPropList);
         $this->page = tools::parse_by_blocks("SEQ_FUNCTIONS",$this->page,$this->seqFuncList);
+        $this->page = tools::parse_by_blocks("PROJ_CTRL",$this->page,$this->projCTRL);
+        if($this->graphTable != null)
         $this->page = tools::parse_by_blocks("GRAPH",$this->page,$this->graphTable);
+        $this->page = tools::remove_empty_blocks($this->page);
         gpro::$HTML['MAIN_BLOCK'] = $this->page;
     }
     public function downloadingProcess()
@@ -203,6 +210,14 @@ class analyzer
             $list .= "</ol></div>";
         }
         return $list;
+    }
+    private function setProjCTRLdata()
+    {
+        if(isset($this->posts["action"]))
+            $data = tools::parse_by_blocks("ACTION",file_get_contents(MAINBLOCK."project-Control.html"),$this->posts["action"]);
+        else
+        $data = tools::parse_by_blocks("ACTION",file_get_contents(MAINBLOCK."project-Control.html"),"");
+        return $data;
     }
 }
 ?>

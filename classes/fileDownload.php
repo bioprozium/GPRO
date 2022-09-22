@@ -94,7 +94,7 @@ class fileDownloadingProcess
     public function downloadFile($source, $dest)
     {
         $curl = curl_init();
-        $proxy = "192.168.192.1:3211";                                                                //PROXY must be activated in university
+        $proxy = "192.168.192.1:3211";                                                                //PROXY must be activated at university
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_URL,"$source");
         curl_setopt($curl, CURLOPT_PROXY, $proxy);                                                    //PROXY option activation

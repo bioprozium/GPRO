@@ -1,0 +1,34 @@
+<div class="container border rounded" style="padding: 30px; margin-top: 10px;">
+    <h3 style="text-align:center;"><{USER_NAME}>'s Projects</h3>
+    <form action="{|HTTP_URL|}" method="post">
+        <div class="row justify-content-center">
+            <div class="col">
+                <table class="table table-striped col-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Project name</th>
+                            <th scope="col">Objects</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Attachment date</th>
+                            <th scope="col">Delete file</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <{DATA_TABLE}>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <button class="btn btn-outline-success" name="analyzer" value="true" onclick="checkSelectedFiles()">Go to analyzer</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-success" name="taxtable" value="true">Go to Taxonomy >>></button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="script/js/userProjects.js"></script>

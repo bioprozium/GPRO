@@ -1,0 +1,68 @@
+<div id="savebox" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginLabel">Save Project</h5>
+      </div>
+      <div class="modal-body">
+          <div id="saveprojectalert" style="display:none" class="alert alert-danger">
+            <p>Error:</p>
+            <span></span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-server"style="font-size: 1rem; color: #198754"></i></span>
+            <input type="text" id="project-name" class="form-control" placeholder="Project Name" aria-label="Project Name" aria-describedby="basic-addon1">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-success" id="saveproj" name="saveProj"> Save </button>
+      </div>
+    </div>
+</div>
+<script>
+  const saveButton = document.getElementById('saveproj');
+  saveButton.addEventListener("click", function(){
+    let jsonToServer = {user:{},public:{}};
+    let checked = document.querySelectorAll("input[id='propcheck']:checked");
+    let action = document;
+    console.log(action);
+    /*checked.forEach(function(cb,index){
+      let prop = cb.name.substr(0,1);
+      if(prop == "s")
+      {
+        let matches = cb.name.match(/\d+/g);
+        if(matches in jsonToServer.user)
+        {
+          jsonToServer.user[matches].push(cb.value);
+        }
+        else
+        {
+          jsonToServer.user[matches] = [cb.value];
+        }
+      }
+      else if(prop == "p")
+      {
+        let matches = cb.name.match(/\d+/g);
+        if(matches in jsonToServer.public)
+        {
+          jsonToServer.public[matches].push(cb.value);
+        }
+        else
+        {
+          jsonToServer.public[matches] = [cb.value];
+        }
+      }
+    });
+    const myJSON = JSON.stringify(jsonToServer);
+    $.post( host+"/index.php?m=pctrl&action=save", { data: myJSON, act: action } )
+    .done(function( data ) {
+      if(data !== null || data !== undefined)
+      {
+        console.log(data);
+      }
+      else
+      {
+        window.location.replace(query);
+      }
+    });*/
+  });
+</script>
