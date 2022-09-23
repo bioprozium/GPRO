@@ -30,6 +30,9 @@ class gpro
             "anl"=>"analyzer",
             "gnm"=>"genome",
             "ufp"=>"userfilepanel",
+            "upp"=>"userprojectpanel",
+            "up"=>"userprofile",
+            "pctrl"=>"projectCtrl",
             "anl"=>"analyzer",
             "check"=>"checkStatus"
         );
@@ -41,6 +44,7 @@ class gpro
     }
     function SetPage()
     {
+        //if($_POST[])
 		if($this->module=="")
 		{
 			if(isset($this->gets["login"]))

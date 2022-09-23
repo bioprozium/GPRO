@@ -32,7 +32,7 @@ class Graph
                 $this->graph = $this->setAminoAcidPosLineChart();
                 break;
             default:
-                return;
+                return " ";
         }                
     }
     public function getGraph()
@@ -519,7 +519,65 @@ class Graph
     }
     private function setAminoAcidPosLineChart()
     {
-
+        $column = "";
+        foreach($this->data as $from=>$data)
+        {
+            if($from == "u")
+            {
+                foreach($data as $id=>$prop)
+                {
+                    $this->name = $this->getOrgName($id,"u");
+                    foreach($prop as $p=>$dataArr)
+                    {
+                        foreach($dataArr as $aa=>$data)
+                        {
+                            $column .= "['$this->name $p $aa',";
+                            foreach($data as $i=>$count)
+                            {
+                                $column .= "$count,";
+                            }
+                            $column = rtrim($column, ",");
+                            $column .= "],";
+                        }
+                    }
+                }
+            }
+            if($from == "p")
+            {
+                foreach($data as $id=>$prop)
+                {
+                    $this->name = $this->getOrgName($id,"p");
+                    foreach($prop as $p=>$dataArr)
+                    {
+                        foreach($dataArr as $aa=>$data)
+                        {
+                            $column .= "['$this->name $p $aa',";
+                            foreach($data as $i=>$count)
+                            {
+                                $column .= "$count,";
+                            }
+                            $column = rtrim($column, ",");
+                            $column .= "],";
+                        }
+                    }
+                }
+            }
+        }
+        $column = rtrim($column, ",");
+        $this->script = "
+        <script src='script/js/c3.min.js'></script>
+        <script src='script/js/d3.min.js' charset='utf-8'></script>
+        <div id=\"chart\"></div>
+        <script>
+        var chart = c3.generate({
+            bindto: '#chart',
+            data: {
+                columns: [
+                    $column
+                ]
+            }
+        });
+        </script>";
     }
     private function getOrgName($id,$from)
     {

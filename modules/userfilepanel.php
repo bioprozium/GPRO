@@ -116,12 +116,14 @@ class userFilePanel
             $res = mysqlDB::$_connectionGDB->query($query);
             if($res->num_rows > 0)
             {
+                
                 $row = $res->fetch_assoc();
                 $delFileRandomName = $row["random_name"];
                 $deleteFromTableQuery = "DELETE FROM user_files WHERE id=$delId AND user_id=$this->user_id";
                 if(!unlink(DATA."users/user_$this->user_id/$delFileRandomName"))
                 {
-
+                    mysqlDB::$_connectionGDB->query($deleteFromTableQuery);
+                    exit;
                 }
                 else
                 {

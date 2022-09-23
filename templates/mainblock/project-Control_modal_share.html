@@ -1,0 +1,22 @@
+<div id="sharebox" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginLabel">Share Project</h5>
+      </div>
+      <div class="modal-body">
+        <form id="shareproject_form">
+          <div id="shareprojectalert" style="display:none" class="alert alert-danger">
+            <p>Error:</p>
+            <span></span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-check" style="font-size: 1rem; color: #198754"></i></span>
+            <input type="text" id="user-id" class="form-control" placeholder="User ID" aria-label="User ID" aria-describedby="basic-addon1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#" onclick="login()" class="btn btn-outline-success">Share</a>
+      </div>
+    </div>
+</div>
